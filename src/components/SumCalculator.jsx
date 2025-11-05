@@ -206,11 +206,11 @@ function SumCalculator() {
      * 4. Cập nhật state (sum hoặc error)
      */
     const handleCalculate = () => {
-        // 1. Đặt lại tổng và lỗi trước mỗi lần tính toán
+        // Đặt lại tổng và lỗi trước mỗi lần tính toán
         setSum(null);
         setError('');
 
-        // --- 2. Bắt đầu logic validation chi tiết ---
+        // --- Bắt đầu logic validation chi tiết ---
         
         // Lấy giá trị và xóa khoảng trắng thừa
         const n1 = num1.trim();
@@ -290,7 +290,7 @@ function SumCalculator() {
             return;
         }
 
-        // --- 3. Chuyển đổi và tính toán ---
+        // --- Chuyển đổi và tính toán ---
         
         // Kiểm tra xem có phải là số thập phân không (dựa vào dấu '.')
         const isDecimal = n1.includes('.') || n2.includes('.');
@@ -318,7 +318,7 @@ function SumCalculator() {
             // Sử dụng hàm SumBigInt để xử lý số nguyên lớn (đầu vào là chuỗi n1, n2)
             const bigIntSum = SumBigInt(n1, n2);
             
-            // 4. Cập nhật state
+            // Cập nhật state
             setSum(bigIntSum); // Kết quả từ SumBigInt đã là string
         }
         // --- Kết thúc logic validation ---

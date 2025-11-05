@@ -332,82 +332,82 @@ function SumCalculator() {
         <div className="w-full md:w-2/3 lg:w-1/2 mx-auto p-6 bg-gradient-to-br from-indigo-50 
         to-purple-100 dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-xl font-sans">
         
-        {/* Tiêu đề */}
-        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-            Sum Calculator
-        </h1>
-        
-        <div className="space-y-4">
-            {/* Input cho Số 1 */}
-            <div>
-            <label htmlFor="num1" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Number 1
-            </label>
-            <input
-                type="text" // Dùng type="text" để có thể nhập số lớn và dấu "-"
-                id="num1"
-                value={num1}
-                onChange={handleNum1Change}
-                placeholder="Nhập số thứ nhất (ví dụ: 123 hoặc -123)"
-                maxLength={21}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
-                focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 
-                dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 
-                dark:focus:border-indigo-500"
-            />
-            </div>
-
-            {/* Input cho Số 2 */}
-            <div>
-            <label htmlFor="num2" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Number 2
-            </label>
-            <input
-                type="text"
-                id="num2"
-                value={num2}
-                onChange={handleNum2Change}
-                placeholder="Nhập số thứ hai (ví dụ: 456 hoặc 45.6)"
-                maxLength={21}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
-                focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 
-                dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 
-                dark:focus:border-indigo-500"
-            />
-            </div>
-
-            {/* Nút tính toán */}
-            <button
-                onClick={handleCalculate}
-                disabled={!!error} // Vô hiệu hóa nút nếu có lỗi (chuyển error thành boolean)
-                className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md 
-                shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
-                focus:ring-offset-2 transition duration-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 
-                dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-                Calculate Sum
-            </button>
-        </div>
-
-        {/* Khu vực hiển thị kết quả */}
-        <div className="mt-6 text-center">
+            {/* Tiêu đề */}
+            <h1 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+                Sum Calculator
+            </h1>
             
-            {/* Hiển thị lỗi (nếu state 'error' không rỗng) */}
-            {error && (
-            <p className="text-lg font-medium text-red-600 dark:text-red-400">
-                {error}
-            </p>
-            )}
+            <div className="space-y-4">
+                {/* Input cho Số 1 */}
+                <div>
+                    <label htmlFor="num1" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Number 1
+                    </label>
+                    <input
+                        type="text" // Dùng type="text" để có thể nhập số lớn và dấu "-"
+                        id="num1"
+                        value={num1}
+                        onChange={handleNum1Change}
+                        placeholder="Nhập số thứ nhất (ví dụ: 123 hoặc -123)"
+                        maxLength={21}
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
+                        focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 
+                        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 
+                        dark:focus:border-indigo-500"
+                    />
+                </div>
 
-            {/* Hiển thị tổng (nếu state 'sum' không phải là null VÀ không có lỗi) */}
-            {/* Logic !error là không cần thiết vì nút bị vô hiệu hóa khi có lỗi, 
-                nhưng 'sum !== null' là quan trọng để không hiển thị 'Result: 0' lúc ban đầu */}
-            {sum !== null && !error && (
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                Result: <span className="text-indigo-600 dark:text-indigo-400">{sum}</span>
-            </p>
-            )}
-        </div>
+                {/* Input cho Số 2 */}
+                <div>
+                    <label htmlFor="num2" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Number 2
+                    </label>
+                    <input
+                        type="text"
+                        id="num2"
+                        value={num2}
+                        onChange={handleNum2Change}
+                        placeholder="Nhập số thứ hai (ví dụ: 456 hoặc 45.6)"
+                        maxLength={21}
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm 
+                        focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 
+                        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 
+                        dark:focus:border-indigo-500"
+                    />
+                </div>
+
+                {/* Nút tính toán */}
+                <button
+                    onClick={handleCalculate}
+                    disabled={!!error} // Vô hiệu hóa nút nếu có lỗi (chuyển error thành boolean)
+                    className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md 
+                    shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                    focus:ring-offset-2 transition duration-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 
+                    dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    Calculate Sum
+                </button>
+            </div>
+
+            {/* Khu vực hiển thị kết quả */}
+            <div className="mt-6 text-center">
+                
+                {/* Hiển thị lỗi (nếu state 'error' không rỗng) */}
+                {error && (
+                <p className="text-lg font-medium text-red-600 dark:text-red-400">
+                    {error}
+                </p>
+                )}
+
+                {/* Hiển thị tổng (nếu state 'sum' không phải là null VÀ không có lỗi) */}
+                {/* Logic !error là không cần thiết vì nút bị vô hiệu hóa khi có lỗi, 
+                    nhưng 'sum !== null' là quan trọng để không hiển thị 'Result: 0' lúc ban đầu */}
+                {sum !== null && !error && (
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Result: <span className="text-indigo-600 dark:text-indigo-400">{sum}</span>
+                </p>
+                )}
+            </div>
         </div>
     );
 }

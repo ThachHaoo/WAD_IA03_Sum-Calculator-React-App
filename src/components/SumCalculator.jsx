@@ -250,6 +250,11 @@ function SumCalculator() {
 
         // Kiểm tra vị trí dấu - (âm)
         // Dấu âm chỉ được ở đầu, và không được có nhiều hơn 1
+        if (((n1.includes('-') && !n1.startsWith('-')) || (n1.split('-').length - 1 > 1)) &&
+            ((n2.includes('-') && !n2.startsWith('-')) || (n2.split('-').length - 1 > 1))) {
+            setError('Dấu âm (-) ở cả hai ô chỉ được phép ở đầu.');
+            return;
+        }
         if ((n1.includes('-') && !n1.startsWith('-')) || (n1.split('-').length - 1 > 1)) {
             setError('Dấu âm (-) ở "Number 1" chỉ được phép ở đầu.');
             return;
@@ -260,13 +265,31 @@ function SumCalculator() {
         }
         
         // Kiểm tra trường hợp đặc biệt: chỉ nhập "-" hoặc "-."
-        if (n1 === '-' || n2 === '-') {
-            setError('Vui lòng nhập một số hợp lệ (ví dụ: -123).');
+        // Kiểm tra "-"
+        if (n1 === '-' && n2 === '-') {
+            setError('Vui lòng nhập một số hợp lệ ở cả hai ô (ví dụ: -0.5 hoặc 0.5).');
             return;
         }
-        // (Lưu ý: ".-" đã bị regex ở trên chặn)
-        if (n1 === '-.' || n2 === '-.' || n1 === '.' || n2 === '.') {
-            setError('Vui lòng nhập một số hợp lệ (ví dụ: -0.5 hoặc 0.5).');
+        if (n1 === '-') {
+            setError('Vui lòng nhập một số hợp lệ ở ô thứ nhất (ví dụ: -0.5 hoặc 0.5).');
+            return;
+        }
+        if (n2 === '-') {
+            setError('Vui lòng nhập một số hợp lệ ở ô thứ hai (ví dụ: -0.5 hoặc 0.5).');
+            return;
+        }
+
+        // Kiểm tra "-." hoặc "."
+        if ((n1 === '-.' || n1 === '.') && (n2 === '-.' || n2 === '.')) {
+            setError('Vui lòng nhập một số hợp lệ ở cả hai ô (ví dụ: -0.5 hoặc 0.5).');
+            return;
+        }
+        if (n1 === '-.' || n1 === '.' ) {
+            setError('Vui lòng nhập một số hợp lệ ở ô thứ nhất (ví dụ: -0.5 hoặc 0.5).');
+            return;
+        }
+        if (n2 === '-.' || n2 === '.') {
+            setError('Vui lòng nhập một số hợp lệ ở ô thứ hai (ví dụ: -0.5 hoặc 0.5).');
             return;
         }
 
